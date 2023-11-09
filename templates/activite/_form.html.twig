@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+    {{ form_row(form.numActivite) }}
+    {{ form_row(form.axe) }}
+    {{ form_row(form.programme) }}
+    {{ form_row(form.activite) }}
+    {{ form_row(form.coutActivite) }}
+    {{ form_row(form.devise) }}
+    {{ form_row(form.coutActiviteFcfa) }}
+    {{ form_row(form.poids) }}
+    {{ form_row(form.libelleIndicateurIndividuel) }}
+    {{ form_row(form.libelleActivite) }}
+    {{ form_row(form.resultatAttendu) }}
+
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

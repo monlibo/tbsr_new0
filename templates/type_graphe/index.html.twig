@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeGraphe index{% endblock %}
+
+{% block body %}
+    <h1>Liste des types de graphe </h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Code</th>
+                <th>Libelle</th>
+{#                <th>Url</th>#}
+{#                <th>UrlAbsolute</th>#}
+{#                <th>CreatedAt</th>#}
+{#                <th>CreatedBy</th>#}
+{#                <th>UpdatedAt</th>#}
+{#                <th>UpdatedBy</th>#}
+{#                <th>DeletedAt</th>#}
+{#                <th>DeletedBy</th>#}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_graphe in type_graphes %}
+            <tr>
+{#                <td>{{ type_graphe.id }}</td>#}
+                <td>{{ type_graphe.code }}</td>
+                <td>{{ type_graphe.libelle }}</td>
+{#                <td>{{ type_graphe.url }}</td>#}
+{#                <td>{{ type_graphe.urlAbsolute }}</td>#}
+{#                <td>{{ type_graphe.createdAt ? type_graphe.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ type_graphe.createdBy }}</td>#}
+{#                <td>{{ type_graphe.updatedAt ? type_graphe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ type_graphe.updatedBy }}</td>#}
+{#                <td>{{ type_graphe.deletedAt ? type_graphe.deletedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ type_graphe.deletedBy }}</td>#}
+                <td>
+                    <a href="{{ path('app_type_graphe_show', {'id': type_graphe.id}) }}">Details</a>
+                    <a href="{{ path('app_type_graphe_edit', {'id': type_graphe.id}) }}">Modifier</a>
+
+                </td>
+            </tr>
+        {% else %}
+{#            <tr>#}
+{#                <td colspan="12">no records found</td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_graphe_new') }}">Nouveau type de graphe</a>
+{% endblock %}

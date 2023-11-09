@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_row(form.typeActivite) }}
+    {{ form_row(form.activite) }}
+    {{ form_row(form.numActivite) }}
+    {{ form_row(form.libelleActivite) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}programme{% endblock %}
+
+{% block body %}
+    <h1>Liste des programmes</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-danger"  style="background-color: green; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numéro</th>
+                <th>Programme</th>
+{#                <th>Axe</th>#}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                <td>{{ activite.id }}</td>
+                <td>{{ activite.numActivite }}</td>
+                <td>{{ activite.libelleActivite }}</td>
+{#               <td>{{ activite.activite.libelleActivite }}</td>#}
+                <td>
+                    <a href="{{ path('app_programme_show', {'id': activite.id}) }}">Detail</a>
+                    <a href="{{ path('app_programme_edit', {'id': activite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_programme_new') }}">Enregistrer</a>
+{% endblock %}

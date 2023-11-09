@@ -1,0 +1,426 @@
+      <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- User profile -->
+          <div class="user-profile position-relative" style=" background: url(/assets/assets/images/background/user-info.jpg) no-repeat;">
+            <div class="profile-text pt-1 dropdown">
+              
+              <div
+                class="dropdown-menu animated flipInY"
+                aria-labelledby="dropdownMenuLink"
+              >
+                <a class="dropdown-item" href="#"
+                  ><i
+                    data-feather="user"
+                    class="feather-sm text-info me-1 ms-1"
+                  ></i>
+                  My Profile</a
+                >
+                <a class="dropdown-item" href="#"
+                  ><i
+                    data-feather="credit-card"
+                    class="feather-sm text-info me-1 ms-1"
+                  ></i>
+                  My Balance</a
+                >
+                <a class="dropdown-item" href="#"
+                  ><i
+                    data-feather="mail"
+                    class="feather-sm text-success me-1 ms-1"
+                  ></i>
+                  Inbox</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"
+                  ><i
+                    data-feather="settings"
+                    class="feather-sm text-warning me-1 ms-1"
+                  ></i>
+                  Account Setting</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="authentication-login3.html"
+                  ><i
+                    data-feather="log-out"
+                    class="feather-sm text-danger me-1 ms-1"
+                  ></i>
+                  Logout</a
+                >
+                <div class="dropdown-divider"></div>
+                <div class="ps-4 p-2">
+                  <a href="#" class="btn d-block w-100 btn-info rounded-pill"
+                    >View Profile</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End User profile text-->
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                >
+                  <i class="mdi mdi-gauge"></i>
+                  <span class="hide-menu">Administration </span>
+                </a>
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="{{path('app_structure_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Structures</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_annee_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Années </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_periode_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Périodes </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_bailleur_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Bailleurs </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_reforme_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Reformes </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_fonction_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Fonctions </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Types Activités </span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_periodicite_index')}}" class="sidebar-link">
+                      <i class="mdi mdi-adjust"></i>
+                      <span class="hide-menu"> Periodicité </span>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-account"></i
+                  ><span class="hide-menu">Utilisteurs </span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a
+                      href="{{path('app_periode_index')}}"
+                      class="sidebar-link"
+                      ><i class="mdi mdi-format-align-left"></i
+                      ><span class="hide-menu">
+                        Administrateurs
+                      </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="{{path('app_register')}}"
+                      class="sidebar-link"
+                      ><i class="mdi mdi-format-align-right"></i
+                      ><span class="hide-menu">
+                        Responsables
+                      </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="{{path('app_register')}}"
+                      class="sidebar-link"
+                      ><i class="mdi mdi-format-float-left"></i
+                      ><span class="hide-menu"> Experts </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="{{path('app_register')}}"
+                      class="sidebar-link"
+                      ><i class="mdi mdi-format-float-right"></i
+                      ><span class="hide-menu"> Contributeurs ou SMO</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-settings"></i
+                  ><span class="hide-menu">Paramétre </span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="" class="sidebar-link"
+                      ><i class="mdi mdi-calendar"></i
+                      ><span class="hide-menu"> Année de Gestion </span></a
+                    >
+                  </li>
+                  <li class="">
+                    <a href="inbox-email.html" class="sidebar-link"
+                      ><i class="mdi mdi-calendar"></i
+                      ><span class="hide-menu"> Axe  </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="inbox-email.html" class="sidebar-link"
+                      ><i class="mdi mdi-calendar"></i
+                      ><span class="hide-menu"> Programme </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="inbox-email-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-email-alert"></i
+                      ><span class="hide-menu">Action </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="inbox-email-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-email-alert"></i
+                      ><span class="hide-menu">Activité </span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-folder-multiple"></i
+                  ><span class="hide-menu">Planification </span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="ticket-list.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-multiple"></i
+                      ><span class="hide-menu"> Echelonner </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ticket-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-plus"></i
+                      ><span class="hide-menu"> Planifier </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ticket-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-plus"></i
+                      ><span class="hide-menu"> Taches </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ticket-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-plus"></i
+                      ><span class="hide-menu"> Exécutions </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ticket-detail.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-plus"></i
+                      ><span class="hide-menu"> Report de tâches </span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-widgets"></i
+                  ><span class="hide-menu">Rapport / Documents</span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="ui-accordian.html" class="sidebar-link"
+                      ><i class="mdi mdi-box-shadow"></i
+                      ><span class="hide-menu"> Rapport</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_niveauvisibilite_index')}}" class="sidebar-link"
+                      ><i class="mdi mdi-application"></i
+                      ><span class="hide-menu"> Niveau de consultation</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ui-buttons.html" class="sidebar-link"
+                      ><i class="mdi mdi-toggle-switch"></i
+                      ><span class="hide-menu"> Type de graphes</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ui-modals.html" class="sidebar-link"
+                      ><i class="mdi mdi-tablet"></i
+                      ><span class="hide-menu"> Types de données</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ui-tab.html" class="sidebar-link"
+                      ><i class="mdi mdi-sort-variant"></i
+                      ><span class="hide-menu"> Categorie Documents</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ui-tooltip-popover.html" class="sidebar-link"
+                      ><i class="mdi mdi-image-filter-vintage"></i
+                      ><span class="hide-menu"> Documents</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+               <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-yelp"></i
+                  ><span class="hide-menu">Suggestions </span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="ticket-list.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-multiple"></i
+                      ><span class="hide-menu"> Liste des suggestions </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="ticket-list.html" class="sidebar-link"
+                      ><i class="mdi mdi-book-multiple"></i
+                      ><span class="hide-menu"> Nouvelle Suggestion </span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-notification-clear-all"></i
+                  ><span class="hide-menu">Multi level dd</span></a
+                >
+                <ul aria-expanded="false" class="collapse first-level">
+                  <li class="sidebar-item">
+                    <a href="javascript:void(0)" class="sidebar-link"
+                      ><i class="mdi mdi-octagram"></i
+                      ><span class="hide-menu"> item 1.1</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="javascript:void(0)" class="sidebar-link"
+                      ><i class="mdi mdi-octagram"></i
+                      ><span class="hide-menu"> item 1.2</span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      class="has-arrow sidebar-link"
+                      href="javascript:void(0)"
+                      aria-expanded="false"
+                      ><i class="mdi mdi-playlist-plus"></i>
+                      <span class="hide-menu">Menu 1.3</span></a
+                    >
+                    <ul aria-expanded="false" class="collapse second-level">
+                      <li class="sidebar-item">
+                        <a href="javascript:void(0)" class="sidebar-link"
+                          ><i class="mdi mdi-octagram"></i
+                          ><span class="hide-menu"> item 1.3.1</span></a
+                        >
+                      </li>
+                      <li class="sidebar-item">
+                        <a href="javascript:void(0)" class="sidebar-link"
+                          ><i class="mdi mdi-octagram"></i
+                          ><span class="hide-menu"> item 1.3.2</span></a
+                        >
+                      </li>
+                      <li class="sidebar-item">
+                        <a href="javascript:void(0)" class="sidebar-link"
+                          ><i class="mdi mdi-octagram"></i
+                          ><span class="hide-menu"> item 1.3.3</span></a
+                        >
+                      </li>
+                      <li class="sidebar-item">
+                        <a href="javascript:void(0)" class="sidebar-link"
+                          ><i class="mdi mdi-octagram"></i
+                          ><span class="hide-menu"> item 1.3.4</span></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="javascript:void(0)" class="sidebar-link"
+                      ><i class="mdi mdi-playlist-check"></i
+                      ><span class="hide-menu"> item 1.4</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+              
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+        <!-- Bottom points-->
+        <div class="sidebar-footer">
+          <!-- item-->
+          <a
+            href=""
+            class="link"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Settings"
+            ><i class="ti-settings"></i
+          ></a>
+          <!-- item-->
+          <a
+            href=""
+            class="link"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Email"
+            ><i class="mdi mdi-gmail"></i
+          ></a>
+          <!-- item-->
+          <a
+            href=""
+            class="link"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Logout"
+            ><i class="mdi mdi-power"></i
+          ></a>
+        </div>
+        <!-- End Bottom points-->
+      </aside>

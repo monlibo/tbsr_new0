@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeActivite {% endblock %}
+
+{% block body %}
+    <h1>Liste des types d'activité</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-"  style="background-color: seagreen; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Annee</th>>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_activite in type_activites %}
+            <tr>
+                <td>{{ type_activite.libelle }}</td>
+                <td>{{ type_activite.annee }}</td>
+                <td>
+                    <a href="{{ path('app_type_activite_show', {'id': type_activite.id}) }}">Détail</a>
+                    <a href="{{ path('app_type_activite_edit', {'id': type_activite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_activite_new') }}">Enregistrer</a>
+{% endblock %}

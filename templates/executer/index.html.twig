@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Executer index{% endblock %}
+
+{% block body %}
+    <h1>Executer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>TauxPrevu</th>
+                <th>TauxRealiser</th>
+                <th>Observation</th>
+                <th>DateExecution</th>
+                <th>Archives</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for executer in executers %}
+            <tr>
+                <td>{{ executer.id }}</td>
+                <td>{{ executer.libelle }}</td>
+                <td>{{ executer.tauxPrevu }}</td>
+                <td>{{ executer.tauxRealiser }}</td>
+                <td>{{ executer.observation }}</td>
+                <td>{{ executer.dateExecution ? executer.dateExecution|date('Y-m-d') : '' }}</td>
+                <td>{{ executer.archives }}</td>
+                <td>
+                    <a href="{{ path('app_executer_show', {'id': executer.id}) }}">show</a>
+                    <a href="{{ path('app_executer_edit', {'id': executer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_executer_new') }}">Create new</a>
+{% endblock %}

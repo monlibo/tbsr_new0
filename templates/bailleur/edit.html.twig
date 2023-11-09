@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TBSR : Modifier un bailleur {% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="border-bottom title-part-padding">
+                    <h4 class="card-title mb-0">Modifier un bailleur</h4>
+                </div>
+                <div class="card-body">
+                    {{ include('bailleur/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        $("#bailleur").addClass("active");
+    </script>
+{% endblock %}

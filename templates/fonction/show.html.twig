@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fonction{% endblock %}
+
+{% block body %}
+    <h1>Fonction</h1>
+       {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ fonction.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ fonction.code }}</td>
+            </tr>
+            {# <tr>
+                <th>Created</th>
+                <td>{{ fonction.created ? fonction.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ fonction.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated</th>
+                <td>{{ fonction.lastUpdated ? fonction.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated_auteur</th>
+                <td>{{ fonction.lastUpdatedAuteur }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer</th>
+                <td>{{ fonction.supprimer ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_date</th>
+                <td>{{ fonction.supprimerDate ? fonction.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_auteur</th>
+                <td>{{ fonction.supprimerAuteur }}</td>
+            </tr> #}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fonction_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_fonction_edit', {'id': fonction.id}) }}">Modifier</a>
+
+    {{ include('fonction/_delete_form.html.twig') }}
+{% endblock %}

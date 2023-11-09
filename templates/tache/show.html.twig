@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}tache{% endblock %}
+
+{% block body %}
+    <h1>Détails de la tâche</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ activite.id }}</td>
+            </tr>
+            <tr>
+                <th>NumActivite</th>
+                <td>{{ activite.numActivite }}</td>
+            </tr>
+            <tr>
+                <th>LibelleActivite</th>
+                <td>{{ activite.libelleActivite }}</td>
+            </tr>
+            <tr>
+                <th>ObjectifPrincipal</th>
+                <td>{{ activite.objectifPrincipal }}</td>
+            </tr>
+            <tr>
+                <th>ObjectifSpecifique</th>
+                <td>{{ activite.objectifSpecifique }}</td>
+            </tr>
+            <tr>
+                <th>LibelleIntComp</th>
+                <td>{{ activite.libelleIntComp }}</td>
+            </tr>
+            <tr>
+                <th>LibelleIndicateurIndividuel</th>
+                <td>{{ activite.libelleIndicateurIndividuel }}</td>
+            </tr>
+            <tr>
+                <th>CoutActivite</th>
+                <td>{{ activite.coutActivite }}</td>
+            </tr>
+            <tr>
+                <th>CoutActiviteFcfa</th>
+                <td>{{ activite.coutActiviteFcfa }}</td>
+            </tr>
+            <tr>
+                <th>ResultatAttendu</th>
+                <td>{{ activite.resultatAttendu }}</td>
+            </tr>
+            <tr>
+                <th>DateDelaiExecution</th>
+                <td>{{ activite.dateDelaiExecution ? activite.dateDelaiExecution|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateExecution</th>
+                <td>{{ activite.dateExecution ? activite.dateExecution|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ activite.poids }}</td>
+            </tr>
+            <tr>
+                <th>Archiver</th>
+                <td>{{ activite.archiver ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ activite.created ? activite.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ activite.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated</th>
+                <td>{{ activite.lastUpdated ? activite.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated_auteur</th>
+                <td>{{ activite.lastUpdatedAuteur }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer</th>
+                <td>{{ activite.supprimer ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_date</th>
+                <td>{{ activite.supprimerDate ? activite.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_auteur</th>
+                <td>{{ activite.supprimerAuteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tache_index') }}">back to list</a>
+
+    <a href="{{ path('app_tache_edit', {'id': activite.id}) }}">edit</a>
+
+    {{ include('tache/_delete_form.html.twig') }}
+{% endblock %}

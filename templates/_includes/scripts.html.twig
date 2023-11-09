@@ -1,0 +1,77 @@
+<script src="{{asset('/assets/dist/libs/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+<script src="{{asset('/assets/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- apps -->
+<script src="{{asset('/assets/dist/js/app.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/app.init.js')}}"></script>
+<script src="{{asset('/assets/dist/js/app-style-switcher.js')}}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{asset('/assets/dist/libs/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+<!--Wave Effects -->
+<script src="{{asset('/assets/dist/js/waves.js')}}"></script>
+<!--Menu sidebar -->
+<script src="{{asset('/assets/dist/js/sidebarmenu.js')}}"></script>
+<!--Custom JavaScript -->
+<script src="{{asset('/assets/dist/js/feather.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/custom.min.js')}}"></script>
+
+<script src="{{asset('/assets/dist/libs/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/fullcalendar/index.global.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/pages/calendar/cal-init.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/jvectormap/jquery-jvectormap.min.js')}}"></script>
+<script src="{{asset('/assets/assets/extra-libs/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{asset('/assets/dist/js/pages/dashboards/dashboard4.js')}}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{asset('/assets/dist/js/pages/email/email.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/prismjs/prism.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/dropzone/dist/min/dropzone.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/app.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/app.init.js')}}"></script>
+<script src="../../dist/js/app-style-switcher.js"></script>
+<script src="{{asset('/assets/dist/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+<script src="{{asset('assets/dist/libs/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/select2/dist/js/select2.min.js')}}"></script>
+<script src="{{asset('/assets/dist/js/pages/forms/select2/select2.init.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/bootstrap-material-datetimepicker/node_modules/moment/moment.js')}}"></script>
+<script src="{{asset('/assets/dist/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
+{#<script src="{{asset('/assets/js/dataTable-tbsr.js')}}"></script>#}
+<script>
+  // MAterial Date picker
+  $("#mdate").bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+  $("#timepicker").bootstrapMaterialDatePicker({
+    format: "HH:mm",
+    time: true,
+    date: false,
+  });
+  $("#date-format").bootstrapMaterialDatePicker({
+    format: "dddd DD MMMM YYYY - HH:mm",
+  });
+
+  $("#min-date").bootstrapMaterialDatePicker({
+    format: "DD/MM/YYYY HH:mm",
+    minDate: new Date(),
+  });
+  $("#date-fr").bootstrapMaterialDatePicker({
+    format: "DD/MM/YYYY HH:mm",
+    lang: "fr",
+    weekStart: 1,
+    cancelText: "ANNULER",
+  });
+  $("#date-end").bootstrapMaterialDatePicker({ weekStart: 0 });
+  $("#date-start")
+    .bootstrapMaterialDatePicker({ weekStart: 0 })
+    .on("change", function (e, date) {
+      $("#date-end").bootstrapMaterialDatePicker("setMinDate", date);
+    });
+</script>
+<script>
+      // Dropzone
+      $("#dzid").dropzone({ url: "/file/post" });
+      Dropzone.autoDiscover = false;
+    </script>
+<script>
+  AOS.init();
+</script>

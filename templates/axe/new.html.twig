@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}axe{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer un axe</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger"  style="background-color: #B0413E; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('axe/_form.html.twig') }}
+
+    <a href="{{ path('app_axe_index') }}">Retour à la liste</a>
+{% endblock %}

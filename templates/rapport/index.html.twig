@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rapport index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Rapports</h1>
+
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Structure</th>
+                <th>Type de Graphe</th>
+                <th>Type de Donnee</th>
+                <th>Niveau de Visibilite</th>
+                <th>Commentaire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rapport in rapports %}
+            <tr>
+                <td>{{ rapport.libelle }}</td>
+                <td>{{ rapport.structure}}</td>
+                <td>{{ rapport.typeGraphe}}</td>
+                <td>{{ rapport.typeDonnee }}</td>
+                <td>{{ rapport.niveauVisibilite }}</td>
+                <td>{{ rapport.commentaire }}</td>
+                <td>
+                    <a href="{{ path('app_rapport_show', {'id': rapport.id}) }}">Details</a>
+                    <a href="{{ path('app_rapport_edit', {'id': rapport.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+{#            <tr>#}
+{#                <td colspan="11">no records found</td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rapport_new') }}">Nouveau Rapport</a>
+{% endblock %}

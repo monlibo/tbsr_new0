@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}TBSR::CAPR{% endblock %}</title>
+
+		{% block styles %}
+
+			<link rel="stylesheet" href="{{ asset('/assets/dist/libs/jvectormap/jquery-jvectormap.css') }}">
+			<link rel="stylesheet" href="{{ asset('/assets/dist/css/style.min.css') }}">
+			<link rel="stylesheet" href="{{asset('/assets/dist/libs/prismjs/themes/prism-okaidia.min.css')}}">
+			<link rel="stylesheet" href="{{asset('assets/dist/libs/select2/dist/css/select2.min.css')}}">
+            <link rel="stylesheet" href="{{asset('/assets/dist/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}">
+			<!-- This page plugin CSS -->
+			<link rel="stylesheet" href="{{asset('/assets/dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css')}}">
+			<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		{% endblock %}
+	</head>
+	<body>
+		<div id="main-wrapper">
+			{% block header %}
+				{% include "_includes/header.html.twig" %}
+			{% endblock %}
+
+			{% block aside %}
+				{% include "_includes/aside.html.twig" %}
+			{% endblock %}
+			<div class="page-wrapper">
+
+				<div class="row page-titles">
+					<div class="col-md-5 col-12 align-self-center">
+
+						<h3 class="text-themecolor mb-2">
+							{% block menu %}Dashboard
+							{% endblock %}
+						</h3>
+
+
+						<ol class="breadcrumb mb-0 p-0 bg-transparent">
+							<li class="breadcrumb-item">
+								<a href="javascript:void(0)">Acceuil</a>
+							</li>
+
+							<li class="breadcrumb-item active">
+								{% block submenu %}Dashboard
+								{% endblock %}
+							</li>
+
+						</ol>
+					</div>
+				</div>
+
+
+				<div class="container-fluid">
+
+					{% block body %}
+
+						<div class="content-header">
+							<div class="container-fluid">
+								<div class="row">
+									{% for message in app.flashes('success') %}
+										<div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
+											 role="alert">
+											<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+											{{ message }}
+										</div>
+									{% endfor %}
+									{% for message in app.flashes('error') %}
+										<div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
+											 role="alert">
+											<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+											{{ message }}
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+
+					{% endblock %}
+					</div>
+
+
+					{% include "_includes/footer.html.twig" %}
+				</div>
+				{% block customize %}
+					{% include "_includes/customize.html.twig" %}
+				{% endblock %}
+				{% block scripts %}
+					{% include "_includes/scripts.html.twig" %}
+				{% endblock %}
+			</div>
+		</body>
+	</html>

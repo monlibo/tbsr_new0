@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suggestion{% endblock %}
+
+{% block body %}
+    <h1>Détails de la suggestion</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Libelle</th>
+                <td>{{ suggestion.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Date suggestion</th>
+                <td>{{ suggestion.date ? suggestion.date|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Créé le </th>
+                <td>{{ suggestion.created ? suggestion.created|date('d-m-Y H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ suggestion.auteur }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_suggestion_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_suggestion_edit', {'id': suggestion.id}) }}">Modifier</a>
+
+    {{ include('suggestion/_delete_form.html.twig') }}
+{% endblock %}

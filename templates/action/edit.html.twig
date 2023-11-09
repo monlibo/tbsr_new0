@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}action{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'action</h1>
+
+    {{ include('action/_form.html.twig', {'button_label': 'Mofifier'}) }}
+
+    <a href="{{ path('app_action_index') }}">Retour à la liste</a>
+
+    {{ include('action/_delete_form.html.twig') }}
+{% endblock %}

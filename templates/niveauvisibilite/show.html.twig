@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Niveau de visibilité
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="border-bottom title-part-padding">
+					<h4 class="card-title mb-0">Détails du niveau de visibilité</h4>
+				</div>
+				<div class="card-body">
+
+					<div>
+						<a class="btn btn-flat btn-primary mb-3" href="{{ path('app_niveauvisibilite_index') }}">
+							<i class="fa fa-backward"></i>
+							Retour à la liste
+						</a>
+						<a class="btn btn-flat btn-warning mb-3" href="{{ path('app_niveauvisibilite_edit', {'id': niveau_visibilite.id}) }}">
+							<i class="fa fa-edit"></i>
+							Modifier
+						</a>
+					</div>
+					<table class="table table-bordered table-striped">
+						<tbody>
+							<tr>
+								<th style="width: 30%">Code</th>
+								<td>{{ niveau_visibilite.code }}</td>
+							</tr>
+							<tr>
+								<th>Description</th>
+								<td>{{ niveau_visibilite.libelle }}</td>
+							</tr>
+							<tr>
+								<th>Créé par</th>
+								<td>{{ niveau_visibilite.auteur }}</td>
+							</tr>
+							<tr>
+								<th>Créé le</th>
+								<td>{{ niveau_visibilite.created|date('Y-m-d H:i:s') }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

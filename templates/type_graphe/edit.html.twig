@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeGraphe{% endblock %}
+
+{% block body %}
+    <h1>Modifier un TypeGraphe</h1>
+
+    {{ include('type_graphe/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_type_graphe_index') }}">Retour à la liste</a>
+
+    {{ include('type_graphe/_delete_form.html.twig') }}
+{% endblock %}

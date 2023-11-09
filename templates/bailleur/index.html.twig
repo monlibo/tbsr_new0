@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TBSR : Liste des bailleurs
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="border-bottom title-part-padding">
+					<h4 class="card-title mb-0">Liste des bailleurs</h4>
+				</div>
+				<div class="card-body">
+					<div>
+						<a class="btn btn-flat btn-primary mb-3" href="{{ path('app_bailleur_new') }}">
+							<i class="fa fa-plus"></i>
+							Ajouter
+						</a>
+					</div>
+					<div class="table-responsive">
+						<table id="zero_config" class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>Libellé</th>
+									<th>Description</th>
+									<th>Créée le</th>
+									<th>Créée Par</th>
+									{#<th>MAJ le</th>#}
+									{#<th>MAJ par</th>#}
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for bailleur in bailleurs %}
+									<tr>
+										<td>{{ bailleur.libelle }}</td>
+										<td>{{ bailleur.description }}</td>
+										<td>{{ bailleur.created ? bailleur.created|date('d-m-Y H:i:s') : '' }}</td>
+										<td>{{ bailleur.auteur }}</td>
+										{#                                    <td>{{ bailleur.lastUpdated ? bailleur.lastUpdated|date('d-m-Y H:i:s') : '' }}</td>#}
+										{#                                    <td>{{ bailleur.lastUpdatedAuteur }}</td>#}
+
+										<td>
+											<a class="btn btn-primary btn-xs" href="{{ path('app_bailleur_show', { 'id': bailleur.id }) }}" title="Voir Détails">
+												<i class="fa fa-eye"></i>
+											</a>
+
+											<a class="btn btn-warning btn-xs" href="{{ path('app_bailleur_edit', { 'id': bailleur.id }) }}" title="Modifier ce bailleur">
+												<i class="fa fa-edit"></i>
+											</a>
+											{#                                        {% if is_granted('ROLE_ADMIN') %}#}
+											{{ include('bailleur/_delete_form.html.twig') }}
+											{#                                        {% endif %}#}
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="2">Aucun enregistrement trouvé</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+	<script>
+		$("#bailleur").addClass("active");
+	</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeGraphe{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer le Type de Graphe</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger"  style=" color: #B0413E" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('type_graphe/_form.html.twig') }}
+
+    <a href="{{ path('app_type_graphe_index') }}">Retour à la liste</a>
+{% endblock %}

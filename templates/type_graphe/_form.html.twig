@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_row(form.code) }}
+    {{ form_row(form.libelle) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Structure index
+{% endblock %}
+
+{% block body %}
+{#	{{ parent() }}#}
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="border-bottom title-part-padding">
+					<h4 class="card-title mb-0">Liste des Structures</h4>
+				</div>
+				<div class="card-body">
+
+					<div class="table-responsive">
+						<table id="zero_config" class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>Code</th>
+									<th>Libelle</th>
+									<th>Telephone</th>
+									<th>Adresse</th>
+									<th>Email</th>
+									<th>Actions</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for structure in structures %}
+									<tr>
+										<td>{{ structure.code }}</td>
+										<td>{{ structure.libelle }}</td>
+										<td>{{ structure.telephone }}</td>
+										<td>{{ structure.adresse }}</td>
+										<td>{{ structure.email }}</td>
+										<td>
+											<a class="btn btn-info" href="{{ path('app_structure_show', {'id': structure.id}) }}">Details</a>
+										</td>
+										<td>
+											<a class="btn btn-primary" href="{{ path('app_structure_edit', {'id': structure.id}) }}">Modifier</a>
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="13">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<a href="{{ path('app_structure_new') }}" class="">Nouvelle structure</a>
+{% endblock %}
+  

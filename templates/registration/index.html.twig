@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Confirmation</h1>
+
+
+    <div class="container">
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <form method="POST" action="{{path('confi',{'username':username})}}">
+            <input type="text" class="form-control mb-3 col-6" name="activation" placeholder="CODE DE CONFIRMATION">
+            <button type="submit" class="btn btn-success col-6">Confirmer</button>
+        </form>
+    </div>
+
+{% endblock %}

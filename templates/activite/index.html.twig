@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activite index{% endblock %}
+
+{% block body %}
+    <h1>Activite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumActivite</th>
+                <th>LibelleActivite</th>
+                <th>ObjectifPrincipal</th>
+                <th>ObjectifSpecifique</th>
+                <th>LibelleIntComp</th>
+                <th>LibelleIndicateurIndividuel</th>
+                <th>CoutActivite</th>
+                <th>CoutActiviteFcfa</th>
+                <th>ResultatAttendu</th>
+                <th>DateDelaiExecution</th>
+                <th>DateExecution</th>
+                <th>Poids</th>
+                <th>Archiver</th>
+                <th>Created</th>
+                <th>Auteur</th>
+                <th>Last_updated</th>
+                <th>Last_updated_auteur</th>
+                <th>Supprimer</th>
+                <th>Supprimer_date</th>
+                <th>Supprimer_auteur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                <td>{{ activite.id }}</td>
+                <td>{{ activite.numActivite }}</td>
+                <td>{{ activite.libelleActivite }}</td>
+                <td>{{ activite.objectifPrincipal }}</td>
+                <td>{{ activite.objectifSpecifique }}</td>
+                <td>{{ activite.libelleIntComp }}</td>
+                <td>{{ activite.libelleIndicateurIndividuel }}</td>
+                <td>{{ activite.coutActivite }}</td>
+                <td>{{ activite.coutActiviteFcfa }}</td>
+                <td>{{ activite.resultatAttendu }}</td>
+                <td>{{ activite.dateDelaiExecution ? activite.dateDelaiExecution|date('Y-m-d') : '' }}</td>
+                <td>{{ activite.dateExecution ? activite.dateExecution|date('Y-m-d') : '' }}</td>
+                <td>{{ activite.poids }}</td>
+                <td>{{ activite.archiver ? 'Yes' : 'No' }}</td>
+                <td>{{ activite.created ? activite.created|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ activite.auteur }}</td>
+                <td>{{ activite.lastUpdated ? activite.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ activite.lastUpdatedAuteur }}</td>
+                <td>{{ activite.supprimer ? 'Yes' : 'No' }}</td>
+                <td>{{ activite.supprimerDate ? activite.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ activite.supprimerAuteur }}</td>
+                <td>
+                    <a href="{{ path('app_activite_show', {'id': activite.id}) }}">show</a>
+                    <a href="{{ path('app_activite_edit', {'id': activite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_activite_new') }}">Create new</a>
+{% endblock %}

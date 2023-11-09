@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategorieDocument index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Categories de Document </h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie_document in categorieDocuments %}
+            <tr>
+                <td>{{ categorie_document.libelle }}</td>
+                <td>{{ categorie_document.description }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_document_show', {'id': categorie_document.id}) }}">Details</a>
+                    <a href="{{ path('app_categorie_document_edit', {'id': categorie_document.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+{#            <tr>#}
+{#                <td colspan="10">no records found</td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_document_new') }}">Nouvelle catégorie</a>
+{% endblock %}

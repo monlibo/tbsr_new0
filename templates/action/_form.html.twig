@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_row(form.typeActivite) }}
+    {{ form_row(form.axe) }}
+    {{ form_row(form.activite) }}
+    {{ form_row(form.structure) }}
+    {{ form_row(form.structureAssocie) }}
+    {{ form_row(form.reforme) }}
+    {{ form_row(form.bailleur) }}
+    {{ form_row(form.anneeDebut) }}
+    {{ form_row(form.anneeFin) }}
+    {{ form_row(form.numActivite) }}
+    {{ form_row(form.libelleActivite) }}
+    {{ form_row(form.libelleIntComp) }}
+    {{ form_row(form.objectifPrincipal) }}
+    {{ form_row(form.objectifSpecifique) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

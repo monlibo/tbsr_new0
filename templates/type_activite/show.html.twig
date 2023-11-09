@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeActivite{% endblock %}
+
+{% block body %}
+    <h1> Détails du type d'activité</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_activite.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ type_activite.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ type_activite.annee }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ type_activite.created ? type_activite.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ type_activite.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated</th>
+                <td>{{ type_activite.lastUpdated ? type_activite.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Last_updated_auteur</th>
+                <td>{{ type_activite.lastUpdatedAuteur }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer</th>
+                <td>{{ type_activite.supprimer ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_date</th>
+                <td>{{ type_activite.supprimerDate ? type_activite.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Supprimer_auteur</th>
+                <td>{{ type_activite.supprimerAuteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_activite_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_type_activite_edit', {'id': type_activite.id}) }}">Modifier</a>
+
+    {{ include('type_activite/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reforme
+{% endblock %}
+
+{% block body %}
+	{% block submenu %}Reforme
+	{% endblock %}
+
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title mb-3 pb-3 border-bottom">Modifier une Reforme</h4>
+			{% for message in app.flashes('error') %}
+				<div class="alert alert-danger" style=" color: #B0413E">
+					{{ message }}
+				</div>
+			{% endfor %}
+
+			{{ include('reforme/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+		</div>
+	</div>
+
+
+	{# <h1>Enregistrer une Reforme</h1>
+						{{ include('reforme/_form.html.twig') }} #}
+
+	<a href="{{ path('app_reforme_index') }}">Retour à la liste</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Annee{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer une Annee</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger"  style=" color: #B0413E" >
+            {{ message }}
+        </div>
+        {% endfor %}
+
+    {{ include('annee/_form.html.twig') }}
+
+    <a href="{{ path('app_annee_index') }}">Liste</a>
+{% endblock %}
+{#background-color: ;#}

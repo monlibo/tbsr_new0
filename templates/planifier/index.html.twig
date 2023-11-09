@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planifier index{% endblock %}
+
+{% block body %}
+    <h1>Planifier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>PoidsAction</th>
+                <th>Archiver</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planifier in planifiers %}
+            <tr>
+                <td>{{ planifier.id }}</td>
+                <td>{{ planifier.libelle }}</td>
+                <td>{{ planifier.poidsAction }}</td>
+                <td>{{ planifier.archiver ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_planifier_show', {'id': planifier.id}) }}">show</a>
+                    <a href="{{ path('app_planifier_edit', {'id': planifier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_planifier_new') }}">Create new</a>
+{% endblock %}

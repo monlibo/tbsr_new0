@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeActivite{% endblock %}
+
+{% block body %}
+    <h1>Modifier le type d'activité</h1>
+
+    {{ include('type_activite/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_type_activite_index') }}">Retour à la liste</a>
+
+    {{ include('type_activite/_delete_form.html.twig') }}
+{% endblock %}

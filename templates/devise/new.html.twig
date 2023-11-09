@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devise{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Créer une Devise</h1>
+
+    {{ include('devise/_form.html.twig') }}
+
+    <a href="{{ path('app_devise_index') }}">Retour à la liste</a>
+</div>
+{% endblock %}

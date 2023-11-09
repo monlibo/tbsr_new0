@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_row(form.libelle) }}
+    {{ form_row(form.structure) }}
+    {{ form_row(form.typeDonnee) }}
+    {{ form_row(form.typeGraphe) }}
+    {{ form_row(form.niveauVisibilite) }}
+    {{ form_row(form.commentaire) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

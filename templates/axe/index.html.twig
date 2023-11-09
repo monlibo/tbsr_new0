@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}axe{% endblock %}
+
+{% block body %}
+    <h1>Liste des axes</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-danger"  style="background-color: green; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Libellé</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                <td>{{'axe.'}}{{activite.numActivite}}</td>
+                <td>{{ activite.libelleActivite }}</td>
+                <td>
+                    <a href="{{ path('app_axe_show', {'id': activite.id}) }}">Detail</a>
+                    <a href="{{ path('app_axe_edit', {'id': activite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">Aucune donnée disponible</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_axe_new') }}">Enregistrer</a>
+{% endblock %}

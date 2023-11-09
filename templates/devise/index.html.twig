@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devise index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Devises</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CODE</th>
+                <th>TAUX</th>
+                <th>LIBELLE</th>
+                {# <th>Created</th>
+                <th>Auteur</th>
+                <th>Last_updated</th>
+                <th>Last_updated_auteur</th>
+                <th>Supprimer</th>
+                <th>Supprimer_date</th>
+                <th>Supprimer_auteur</th>
+                <th>actions</th>#}
+            </tr> 
+        </thead>
+        <tbody>
+        {% for devise in devises %}
+            <tr>
+                <td>{{ devise.code }}</td>
+                <td>{{ devise.taux }}</td>
+                <td>{{ devise.libelle }}</td>
+                {# <td>{{ devise.created ? devise.created|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ devise.auteur }}</td>
+                <td>{{ devise.lastUpdated ? devise.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ devise.lastUpdatedAuteur }}</td>
+                <td>{{ devise.supprimer ? 'Yes' : 'No' }}</td>
+                <td>{{ devise.supprimerDate ? devise.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ devise.supprimerAuteur }}</td> #}
+                <td>
+                    <a href="{{ path('app_devise_show', {'id': devise.id}) }}">DETAIL</a> 
+                    <a href="{{ path('app_devise_edit', {'id': devise.id}) }}">MODIFIER</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devise_new') }}">Creer une devise</a>
+{% endblock %}

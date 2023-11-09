@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeGraphe{% endblock %}
+
+{% block body %}
+    <h1>Details sur le Type de Graphe</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <tbody>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ typeGraphe.id }}</td>#}
+{#            </tr>#}
+            <tr>
+                <th>Code</th>
+                <td>{{ typeGraphe.code }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ typeGraphe.libelle }}</td>
+            </tr>
+{#            <tr>#}
+{#                <th>Url</th>#}
+{#                <td>{{ typeGraphe.url }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>UrlAbsolute</th>#}
+{#                <td>{{ typeGraphe.urlAbsolute }}</td>#}
+{#            </tr>#}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_graphe_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_type_graphe_edit', {'id': typeGraphe.id}) }}">Modifier</a>
+
+    {{ include('type_graphe/_delete_form.html.twig') }}
+{% endblock %}

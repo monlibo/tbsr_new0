@@ -1,0 +1,42 @@
+{{ form_start(form) }}
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group">
+			<label class="control-label" for="type_periode_libelle_unique">Libellé
+			</label>
+			{{ form_widget(form.libelle, {'attr' : {'class' : ' form-control '}}) }}
+			<span class="text-danger">{{ form_errors(form.libelle) }}</span>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group">
+			<label class="control-label" for="type_periode_libelle_unique">Description
+			</label>
+			{{ form_widget(form.description, {'attr' : {'class' : ' form-control '}}) }}
+			<span class="text-danger">{{ form_errors(form.description) }}</span>
+		</div>
+	</div>
+</div>
+<br>
+{{ form_rest(form) }}
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<div class="form-group">
+				<button class="btn btn-flat btn-primary">{{ button_label|default('Enregistrer') }}</button>
+				{#                <a onclick="confirmerEnregistrement()" class="btn btn-flat btn-primary" id="enregistrement"#}
+			{#                   href="#"#}
+				{#                   pageenregistrement="{{ path('app_bailleur_new') }}"#}
+				{#                   style="margin-bottom: 10px ; margin-left: 45%; width: 100px;"> <i class="fa fa-trash"></i>#}
+				{#                    Enregistrer</a>#}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{{ form_end(form) }}

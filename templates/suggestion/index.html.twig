@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suggestion{% endblock %}
+
+{% block body %}
+    <h1>Liste des suggestions</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-"  style="background-color: seagreen; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Date suggestion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suggestion in suggestions %}
+            <tr>
+                <td>{{ suggestion.libelle }}</td>
+                <td>{{ suggestion.date ? suggestion.date|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_suggestion_show', {'id': suggestion.id}) }}">Detail</a>
+                    <a href="{{ path('app_suggestion_edit', {'id': suggestion.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_suggestion_new') }}">Nouvel suggestion</a>
+{% endblock %}

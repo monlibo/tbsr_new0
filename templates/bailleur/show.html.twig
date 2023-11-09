@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TBSR : Détails de Bailleur{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="border-bottom title-part-padding">
+                    <h4 class="card-title mb-0">Détails de bailleur</h4>
+                </div>
+                <div class="card-body">
+
+                    <div>
+                        <a class="btn btn-flat btn-primary mb-3" href="{{ path('app_bailleur_index') }}"> <i
+                                    class="fa fa-backward"></i> Retour à la liste </a>
+                        <a class="btn btn-flat btn-warning mb-3"
+                           href="{{ path('app_bailleur_edit', {'id': bailleur.id}) }}"> <i
+                                    class="fa fa-edit"></i> Modifier </a>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                        <tr>
+                            <th style="width: 30%">Libellé</th>
+                            <td>{{ bailleur.libelle }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ bailleur.description }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        $("#activite").addClass("active");
+    </script>
+
+{% endblock %}

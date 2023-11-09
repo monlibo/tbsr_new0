@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_row(form.libelle) }}
+    {{ form_row(form.poidsAction) }}
+    {{ form_row(form.activite) }}
+    {{ form_row(form.annee) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

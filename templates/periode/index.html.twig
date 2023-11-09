@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Periode{% endblock %}
+
+{% block body %}
+    <h1>Liste des Periodes</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DATE DEBUT </th>
+                <th>DATE FIN</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for periode in periodes %}
+            <tr>
+                <td>{{ periode.dateDebut ? periode.dateDebut|date('d-m-Y') : '' }}</td>
+                <td>{{ periode.dateFin ? periode.dateFin|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_periode_show', {'id': periode.id}) }}">DETAIL</a>
+                    <a href="{{ path('app_periode_edit', {'id': periode.id}) }}">MODIFIER</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_periode_new') }}">Créer une periode </a>
+{% endblock %}

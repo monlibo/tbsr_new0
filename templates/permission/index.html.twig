@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Permission{% endblock %}
+
+{% block body %}
+    <h1>Liste des permissions</h1>
+
+   {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>PERMISSION</th>
+                <th>DESCRIPTION</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for permission in permissions %}
+            <tr>  
+                <td>{{ permission.permission }}</td>
+                <td>{{ permission.description }}</td>
+                <td>
+                    <a href="{{ path('app_permission_show', {'id': permission.id}) }}">DETAIL</a>
+                    <a href="{{ path('app_permission_edit', {'id': permission.id}) }}">MODIFIER</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_permission_new') }}">Créer une permission</a>
+{% endblock %}

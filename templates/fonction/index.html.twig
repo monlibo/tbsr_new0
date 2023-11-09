@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fonction{% endblock %}
+
+{% block body %}
+    <h1>Listes des Fonctions</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CODE</th>
+                <th>LIBELLE</th>
+
+                {# <th>Created</th>
+                <th>Auteur</th>
+                <th>Last_updated</th>
+                <th>Last_updated_auteur</th>
+                <th>Supprimer</th>
+                <th>Supprimer_date</th>
+                <th>Supprimer_auteur</th> #}
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fonction in fonctions %}
+            <tr>
+                <td>{{ fonction.code }}</td>
+                <td>{{ fonction.libelle }}</td>
+                {# <td>{{ fonction.created ? fonction.created|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fonction.auteur }}</td>
+                <td>{{ fonction.lastUpdated ? fonction.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fonction.lastUpdatedAuteur }}</td>
+                <td>{{ fonction.supprimer ? 'Yes' : 'No' }}</td>
+                <td>{{ fonction.supprimerDate ? fonction.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fonction.supprimerAuteur }}</td> #}
+                <td>
+                     <a href="{{ path('app_fonction_show', {'id': fonction.id}) }}">DETAIL</a>
+                    <a href="{{ path('app_fonction_edit', {'id': fonction.id}) }}">MODIFIER</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fonction_new') }}">Créer une fonction</a>
+{% endblock %}

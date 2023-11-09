@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Periodicite index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Periodicites</h1>
+
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for periodicite in periodicites %}
+            <tr>
+
+                <td>{{ periodicite.libelle }}</td>
+                <td>{{ periodicite.dateDebut ? periodicite.dateDebut|date('d-m-Y') : '' }}</td>
+                <td>{{ periodicite.dateFin ? periodicite.dateFin|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_periodicite_show', {'id': periodicite.id}) }}">Details</a>
+                    <a href="{{ path('app_periodicite_edit', {'id': periodicite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+{#            <tr>#}
+{#                <td colspan="11">no records found</td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_periodicite_new') }}">Nouvelle periodicite</a>
+{% endblock %}

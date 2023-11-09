@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Role{% endblock %}
+
+{% block body %}
+    <h1>Liste des Rôles</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-danger"  style="background-color: green; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.libelle }}</td>
+                <td>
+                    <a href="{{ path('app_role_show', {'id': role.id}) }}">détail</a>
+                    <a href="{{ path('app_role_edit', {'id': role.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_role_new') }}">Nouveau rôle</a>
+{% endblock %}

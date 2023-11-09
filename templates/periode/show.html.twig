@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Periode{% endblock %}
+
+{% block body %}
+    <h1>Periode</h1>
+       {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ periode.dateDebut ? periode.dateDebut|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ periode.dateFin ? periode.dateFin|date('d-m-Y') : '' }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_periode_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_periode_edit', {'id': periode.id}) }}">Modifier</a>
+
+    {{ include('periode/_delete_form.html.twig') }}
+{% endblock %}

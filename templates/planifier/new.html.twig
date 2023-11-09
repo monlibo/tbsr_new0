@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Planifier{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer Planifier</h1>
+
+    {{ include('planifier/_form.html.twig') }}
+
+    <a href="{{ path('app_planifier_index') }}">back to list</a>
+{% endblock %}

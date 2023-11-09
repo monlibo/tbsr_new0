@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annee index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Années</h1>
+
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success"  style=" color: #008000" >
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Libelle</th>
+                <th>Valeur</th>
+{#                <th>Actif</th>#}
+                <th hidden="hidden">Archiver</th>
+{#                <th>CreatedAt</th>#}
+{#                <th>CreatedBy</th>#}
+{#                <th>UpdatedAt</th>#}
+{#                <th>UpdatedBy</th>#}
+{#                <th>DeletedAt</th>#}
+{#                <th>DeletedBy</th>#}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for annee in annees %}
+            <tr>
+{#                <td>{{ annee.id }}</td>#}
+                <td>{{ annee.libelle }}</td>
+                <td>{{ annee.valeur }}</td>
+{#                <td>{{ annee.actif ? 'Yes' : 'No' }}</td>#}
+                <td hidden="hidden">{{ annee.archiver }} </td>
+{#                <td>{{ annee.createdAt ? annee.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ annee.createdBy }}</td>#}
+{#                <td>{{ annee.updatedAt ? annee.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ annee.updatedBy }}</td>#}
+{#                <td>{{ annee.deletedAt ? annee.deletedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ annee.deletedBy }}</td>#}
+                <td>
+                    <a href="{{ path('app_annee_show', {'id': annee.id}) }}">Details</a>
+                    <a href="{{ path('app_annee_edit', {'id': annee.id}) }}">Modifier</a>
+                    <a >{{ annee.actif ? 'Yes' : 'No' }}</a>
+                </td>
+            </tr>
+        {% else %}
+{#            <tr>#}
+{#                <td colspan="12">no records found</td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_annee_new') }}">Créer une année</a>
+{% endblock %}

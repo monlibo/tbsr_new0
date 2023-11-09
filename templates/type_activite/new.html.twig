@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeActivite{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer un type d'activité</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-"  style="background-color: #B0413E; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('type_activite/_form.html.twig') }}
+
+    <a href="{{ path('app_type_activite_index') }}">Retour à la liste</a>
+{% endblock %}

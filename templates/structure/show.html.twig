@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Structure{% endblock %}
+
+{% block body %}
+    <h1>Details de la Structure</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <tbody>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ structure.id }}</td>#}
+{#            </tr>#}
+            <tr>
+                <th>Code</th>
+                <td>{{ structure.code }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ structure.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ structure.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ structure.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ structure.email }}</td>
+            </tr>
+{#            <tr>#}
+{#                <th>CreatedAt</th>#}
+{#                <td>{{ structure.createdAt ? structure.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>CreatedBy</th>#}
+{#                <td>{{ structure.createdBy }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>UpdatedAt</th>#}
+{#                <td>{{ structure.updatedAt ? structure.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>UpdatedBy</th>#}
+{#                <td>{{ structure.updatedBy }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>DeletedAt</th>#}
+{#                <td>{{ structure.deletedAt ? structure.deletedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>DeletedBy</th>#}
+{#                <td>{{ structure.deletedBy }}</td>#}
+{#            </tr>#}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_structure_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_structure_edit', {'id': structure.id}) }}">Modifier</a>
+
+    {{ include('structure/_delete_form.html.twig') }}
+{% endblock %}

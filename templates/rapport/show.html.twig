@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rapport{% endblock %}
+
+{% block body %}
+    <h1>Details d'un Rapport</h1>
+
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success"  style=" color: #008000" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <tbody>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ rapport.id }}</td>#}
+{#            </tr>#}
+            <tr>
+                <th>Libelle</th>
+                <td>{{ rapport.libelle }}</td>
+            </tr>
+
+            <tr>
+                <th>Structure</th>
+                <td>{{ rapport.structure }}</td>
+            </tr>
+
+            <tr>
+                <th>Type de Graphe</th>
+                <td>{{ rapport.typeGraphe }}</td>
+            </tr>
+
+            <tr>
+                    <th>Type de Donnee</th>
+                <td>{{ rapport.typeDonnee }}</td>
+            </tr>
+
+            <tr>
+                <th>Niveau de Visibilite</th>
+                <td>{{ rapport.libelle }}</td>
+            </tr>
+
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ rapport.commentaire }}</td>
+            </tr>
+{#            <tr>#}
+{#                <th>Created</th>#}
+{#                <td>{{ rapport.created ? rapport.created|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Auteur</th>#}
+{#                <td>{{ rapport.auteur }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Last_updated</th>#}
+{#                <td>{{ rapport.lastUpdated ? rapport.lastUpdated|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Last_updated_auteur</th>#}
+{#                <td>{{ rapport.lastUpdatedAuteur }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Supprimer</th>#}
+{#                <td>{{ rapport.supprimer ? 'Yes' : 'No' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Supprimer_date</th>#}
+{#                <td>{{ rapport.supprimerDate ? rapport.supprimerDate|date('Y-m-d H:i:s') : '' }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Supprimer_auteur</th>#}
+{#                <td>{{ rapport.supprimerAuteur }}</td>#}
+{#            </tr>#}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rapport_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_rapport_edit', {'id': rapport.id}) }}">Modifier</a>
+
+    {{ include('rapport/_delete_form.html.twig') }}
+{% endblock %}

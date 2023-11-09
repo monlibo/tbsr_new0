@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}action{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer une action</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger"  style="background-color: #B0413E; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('action/_form.html.twig') }}
+
+    <a href="{{ path('app_action_index') }}">Retour à la liste</a>
+{% endblock %}

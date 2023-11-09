@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeDonnee index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Types Données</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CODE</th>
+                <th>LIBELLE</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeDonnee in typeDonnees %}
+            <tr>
+                <td>{{ typeDonnee.code }}</td>
+                <td>{{ typeDonnee.libelle }}</td>
+                <td>
+                    <a href="{{ path('app_typeDonnee_show', {'id': typeDonnee.id}) }}">DETAIL</a>
+                    <a href="{{ path('app_typeDonnee_edit', {'id': typeDonnee.id}) }}">MODIFIER</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune donnée </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_typeDonnee_new') }}">Créer une liste</a>
+{% endblock %}

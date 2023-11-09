@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TBSR : Enregistrer un bailleur {% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+                <div>
+                    <a class="btn btn-flat btn-primary mb-3" href="{{ path('app_bailleur_index') }}"> <i
+                                class="fa fa-backward"></i> Retour à la liste </a>
+                </div>
+                <div class="border-bottom title-part-padding">
+                    <h4 class="card-title mb-0">Enregistrer un bailleur</h4>
+                </div>
+
+                <div class="card-body">
+                    {{ include('bailleur/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        $("#bailleur").addClass("active");
+    </script>
+    <script>
+        let boutonEnregistrement = window.document.getElementById('enregistrement');
+
+        function confirmerEnregistrement() {
+            // alert("totorr");
+            let reponseConfirmation = window.confirm("Confirmez vous l'enregistrement ? ");
+            if (reponseConfirmation) {
+                location.href = boutonEnregistrement.getAttribute('pageenregistrement');
+            }
+        }
+    </script>
+
+{% endblock %}

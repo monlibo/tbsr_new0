@@ -1,0 +1,43 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate','enctype': 'multipart/form-data'}}) }}
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-floating mb-3">
+			{{ form_widget(form.libelle) }}
+			{{ form_label(form.libelle) }}
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-floating mb-3">
+			{{ form_widget(form.description) }}
+			{{ form_label(form.description) }}
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="form mb-3">
+			<label for="file">Image</label>
+			<input type="file" class="form-control" id="file" name="file"/>
+		</div>
+	</div>
+</div>
+
+{# <div class="row">
+	<div class="col-md-12">
+		<div class="form-floating mb-3">
+			{{ form_widget(form.url) }}
+			{{ form_label(form.url) }}
+		</div>
+	</div>
+</div> #}
+
+{# {{ form_row(form.libelle) }} #}
+{# {{ form_row(form.description) }} #}
+{# {{ form_row(form.url) }} #}
+{# {{ form_row(form.urlAbsolute) }} #}
+	<button class="btn btn-flat btn-primary"> {{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

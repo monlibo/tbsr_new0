@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reforme
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="border-bottom title-part-padding">
+					<h4 class="card-title mb-0">Détails de la reforme</h4>
+				</div>
+				<div class="card-body">
+
+					<div>
+						<a class="btn btn-flat btn-primary mb-3" href="{{ path('app_reforme_index') }}">
+							<i class="fa fa-backward"></i>
+							Retour à la liste
+						</a>
+						<a class="btn btn-flat btn-warning mb-3" href="{{ path('app_reforme_edit', {'id': reforme.id}) }}">
+							<i class="fa fa-edit"></i>
+							Modifier
+						</a>
+					</div>
+					<table class="table table-bordered table-striped">
+						<tbody>
+							<tr>
+								<th style="width: 30%">Libellé</th>
+								<td>{{ reforme.libelle }}</td>
+							</tr>
+							<tr>
+								<th>Description</th>
+								<td>{{ reforme.description }}</td>
+							</tr>
+							<tr>
+								<th>Créé par</th>
+								<td>{{ reforme.auteur }}</td>
+							</tr>
+							<tr>
+								<th>Créé le</th>
+								<td>{{ reforme.created|date('Y-m-d H:i:s') }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

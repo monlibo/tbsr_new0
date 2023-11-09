@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activite{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer une activite</h1>
+
+    {{ include('activite/_form.html.twig') }}
+
+    <a href="{{ path('app_activite_index') }}">Retour à la liste</a>
+{% endblock %}

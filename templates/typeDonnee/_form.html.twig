@@ -1,0 +1,18 @@
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+{% endfor %}
+{{ form_start(form) }}
+    <div class="mb-3">
+        {{ form_row(form.code) }}
+    </div>  
+    <br>
+    <div class="mb-3">
+        {{ form_row(form.libelle) }}
+    </div>
+    <br>
+    
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+<br>

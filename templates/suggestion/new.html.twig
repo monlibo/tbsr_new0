@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suggestion{% endblock %}
+
+{% block body %}
+    <h1>Faire une suggestion</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-"  style="background-color: #B0413E; color: #dbeafe" >
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('suggestion/_form.html.twig') }}
+
+    <a href="{{ path('app_suggestion_index') }}">Retour à la liste</a>
+{% endblock %}
